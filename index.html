@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RP Soluções em TI - Infraestrutura, Redes e Segurança Corporativa</title>
     <meta name="description" content="Soluções completas em infraestrutura de TI, redes corporativas, segurança e monitoramento para empresas que buscam estabilidade e performance.">
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232EA7E0'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='14' fill='white'>RP</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RP Soluções em TI - Infraestrutura, Redes e Segurança Corporativa">
+    <meta property="og:description" content="Soluções completas em infraestrutura de TI, redes corporativas, segurança e monitoramento para empresas que buscam estabilidade e performance.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RP Soluções em TI">
+    <meta name="twitter:description" content="Infraestrutura, redes e segurança corporativa. Suporte 24/7.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #2EA7E0;
@@ -39,934 +47,670 @@
             overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
+        /* HEADER */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             padding: 1.2rem 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            letter-spacing: -0.5px;
-        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--dark); letter-spacing: -0.5px; }
+        .logo span { color: var(--primary); }
 
-        .logo span {
-            color: var(--primary);
-        }
+        .nav-links { display: flex; gap: 3rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--primary); }
 
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
+        .cta-header { display: flex; gap: 1rem; align-items: center; }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-gray);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
+        /* HAMBURGER */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; padding: 4px; background: none; border: none;
         }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: var(--transition); }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        .nav-links a:hover {
-            color: var(--primary);
+        .mobile-nav {
+            display: none; position: fixed; top: 68px; left: 0; right: 0;
+            background: white; border-bottom: 1px solid var(--border-gray);
+            padding: 1.5rem 2rem; z-index: 999;
+            flex-direction: column; gap: 1.5rem;
         }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 1rem; }
 
-        .cta-header {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
+        /* BUTTONS */
         .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
+            padding: 0.75rem 1.5rem; border: none; border-radius: 8px;
+            font-weight: 600; font-size: 0.95rem; cursor: pointer;
+            transition: var(--transition); text-decoration: none;
+            display: inline-block; text-align: center;
         }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, #1e7fa8 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(46, 167, 224, 0.3);
+            color: white; box-shadow: 0 4px 15px rgba(46,167,224,0.3);
         }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(46,167,224,0.4); }
+        .btn-secondary { background: transparent; color: var(--text-dark); border: 1.5px solid var(--border-gray); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+        .btn-lg { padding: 1rem 2rem; font-size: 1rem; }
+        .btn-white { background: white; color: var(--dark); padding: 1rem 2rem; font-weight: 600; }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(46, 167, 224, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-dark);
-            border: 1.5px solid var(--border-gray);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        /* HERO SECTION */
+        /* HERO */
         .hero {
-            margin-top: 80px;
-            padding: 6rem 0;
-            background: linear-gradient(135deg, rgba(46, 167, 224, 0.05) 0%, rgba(126, 217, 87, 0.03) 100%);
-            position: relative;
-            overflow: hidden;
+            margin-top: 80px; padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(46,167,224,0.05) 0%, rgba(126,217,87,0.03) 100%);
+            position: relative; overflow: hidden;
         }
-
         .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(46, 167, 224, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
+            content: ''; position: absolute; top: -50%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(46,167,224,0.1) 0%, transparent 70%);
+            border-radius: 50%; pointer-events: none;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+        .hero-content { position: relative; z-index: 1; }
 
         .eyebrow {
-            display: inline-block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            background: rgba(46, 167, 224, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
+            display: inline-block; font-size: 0.85rem; font-weight: 600;
+            color: var(--primary); text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 1rem; background: rgba(46,167,224,0.1);
+            padding: 0.5rem 1rem; border-radius: 50px;
         }
 
-        h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
+        h1 { font-family: 'Sora', sans-serif; font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; color: var(--text-dark); }
         h1 .highlight {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
+        .hero-subtitle { font-size: 1.2rem; color: var(--text-gray); max-width: 600px; margin-bottom: 2rem; line-height: 1.8; }
+        .hero-ctas { display: flex; gap: 1.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .hero-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border-gray); }
+        .benefit-item { display: flex; gap: 1rem; }
+        .benefit-icon { width: 40px; height: 40px; background: rgba(46,167,224,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .benefit-text h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .benefit-text p { font-size: 0.85rem; color: var(--text-gray); }
 
-        .hero-ctas {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
+        /* SECTIONS */
+        section { padding: 5rem 0; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-family: 'Sora', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-dark); }
+        .section-header p { font-size: 1.1rem; color: var(--text-gray); max-width: 600px; margin: 0 auto; }
 
-        .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1rem;
-        }
+        /* PROBLEMS */
+        .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 2rem; }
+        .problem-card { background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--border-gray); transition: var(--transition); }
+        .problem-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 30px rgba(46,167,224,0.15); }
+        .problem-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+        .problem-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
 
-        .hero-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border-gray);
-        }
+        /* SOLUTIONS */
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 2.5rem; }
+        .solution-card { background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-gray); text-align: center; transition: var(--transition); }
+        .solution-card:hover { border-color: var(--primary); box-shadow: 0 12px 30px rgba(46,167,224,0.1); transform: translateY(-3px); }
+        .solution-icon { width: 60px; height: 60px; background: linear-gradient(135deg, rgba(46,167,224,0.1) 0%, rgba(126,217,87,0.1) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem; }
+        .solution-card h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+        .solution-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; }
 
-        .benefit-item {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .benefit-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(46, 167, 224, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .benefit-text h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .benefit-text p {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-        }
-
-        /* SECTION STYLES */
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* PROBLEMS SECTION */
-        .problems {
-            background: var(--light-gray);
-        }
-
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .problem-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-gray);
-            transition: var(--transition);
-        }
-
-        .problem-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: 0 12px 30px rgba(46, 167, 224, 0.15);
-        }
-
-        .problem-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-        }
-
-        .problem-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* SOLUTIONS SECTION */
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .solution-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-gray);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .solution-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 12px 30px rgba(46, 167, 224, 0.1);
-        }
-
-        .solution-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, rgba(46, 167, 224, 0.1) 0%, rgba(126, 217, 87, 0.1) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        .solution-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .solution-card p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* CAROUSEL SECTION */
-        .carousel-section {
-            background: var(--light-gray);
-        }
-
-        .carousel-container {
+        /* CLIENTS CAROUSEL */
+        .clients-wrapper {
+            max-width: 680px; margin: 0 auto;
+            overflow: hidden; border-radius: 14px;
+            background: white; padding: 1.8rem 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
             position: relative;
-            overflow: hidden;
-            background: white;
-            border-radius: 12px;
-            padding: 3rem 0;
+        }
+        .clients-wrapper::before, .clients-wrapper::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none;
+        }
+        .clients-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .clients-wrapper::after  { right: 0; background: linear-gradient(to left, white, transparent); }
+
+        .clients-track {
+            display: flex; width: max-content;
+            animation: scrollClients 16s linear infinite;
+        }
+        .clients-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollClients {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .carousel-track {
-            display: flex;
-            gap: 2rem;
-            animation: scroll 30s linear infinite;
-            padding: 0 2rem;
+        .client-item {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 0.45rem;
+            min-width: 130px; padding: 0.5rem 1.2rem;
+            border-right: 1px solid var(--border-gray);
+        }
+        .client-logo-box {
+            width: 64px; height: 42px;
+            background: linear-gradient(135deg, rgba(46,167,224,0.08), rgba(126,217,87,0.08));
+            border-radius: 6px; display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 0.7rem; color: var(--primary); letter-spacing: 0.5px;
+        }
+        .client-item span { font-size: 0.75rem; font-weight: 500; color: var(--text-gray); }
+
+        /* TECH CAROUSEL */
+        .tech-track-wrapper { overflow: hidden; position: relative; }
+        .tech-track-wrapper::before, .tech-track-wrapper::after {
+            content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+        }
+        .tech-track-wrapper::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
+        .tech-track-wrapper::after  { right: 0; background: linear-gradient(to left, #fff, transparent); }
+
+        .tech-track {
+            display: flex; gap: 1.5rem; padding: 0.5rem 1rem;
+            width: max-content; animation: scrollTech 26s linear infinite;
+        }
+        .tech-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollTech {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        .carousel-track:hover {
-            animation-play-state: paused;
+        .tech-item {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 0.6rem; min-width: 112px; height: 100px;
+            background: white; border: 1px solid var(--border-gray);
+            border-radius: 12px; padding: 1rem; transition: var(--transition); cursor: default;
         }
+        .tech-item:hover { border-color: var(--primary); box-shadow: 0 8px 20px rgba(46,167,224,0.15); transform: translateY(-3px); }
+        .tech-logo { width: 52px; height: 36px; display: flex; align-items: center; justify-content: center; }
+        .tech-logo svg { width: 100%; height: 100%; }
+        .tech-item span { font-size: 0.72rem; font-weight: 600; color: var(--text-gray); }
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
+        /* FAQ */
+        .faq-container { max-width: 700px; margin: 0 auto; }
+        .faq-item { background: white; border: 1px solid var(--border-gray); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: var(--transition); }
+        .faq-question:hover { background: rgba(46,167,224,0.05); color: var(--primary); }
+        .faq-answer { padding: 0 1.5rem; color: var(--text-gray); max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+        .faq-item.active .faq-answer { max-height: 200px; padding: 0 1.5rem 1.5rem; }
+        .faq-toggle { width: 24px; height: 24px; border: 2px solid currentColor; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; transition: transform 0.35s ease; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); }
 
-        .carousel-item {
-            min-width: 150px;
-            height: 100px;
-            background: white;
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            transition: var(--transition);
-            filter: grayscale(100%);
-            padding: 1rem;
-        }
-
-        .carousel-item img {
-            filter: inherit;
-            transition: var(--transition);
-        }
-
-        .carousel-item:hover {
-            filter: grayscale(0%);
-            border-color: var(--primary);
-            box-shadow: 0 8px 20px rgba(46, 167, 224, 0.2);
-        }
-
-        /* FAQ SECTION */
-        .faq {
-            background: var(--light-gray);
-        }
-
-        .faq-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            border: 1px solid var(--border-gray);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .faq-question:hover {
-            background: rgba(46, 167, 224, 0.05);
-            color: var(--primary);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            color: var(--text-gray);
-            display: none;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .faq-toggle {
-            width: 24px;
-            height: 24px;
-            border: 2px solid currentColor;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            transition: var(--transition);
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        /* CTA SECTION */
-        .cta-final {
-            background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%);
-            color: white;
-            text-align: center;
-            padding: 5rem 2rem;
-            border-radius: 12px;
-            margin: 5rem 0;
-        }
-
-        .cta-final h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-final p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--dark);
-            padding: 1rem 2rem;
-            font-weight: 600;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
+        /* CTA */
+        .cta-final { background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%); color: white; text-align: center; padding: 5rem 2rem; border-radius: 16px; margin: 5rem 0; }
+        .cta-final h2 { font-family: 'Sora', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-final p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
 
         /* FOOTER */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+        footer { background: var(--dark); color: white; padding: 3rem 0; text-align: center; font-size: 0.9rem; }
+        footer p { opacity: 0.7; margin-bottom: 0.5rem; }
+        footer a { color: inherit; text-decoration: none; transition: var(--transition); }
+        footer a:hover { color: var(--primary); opacity: 1; }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 3rem 0;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
+            h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 3rem 0; }
+            .section-header h2 { font-size: 1.8rem; }
+            .hero-ctas { flex-direction: column; }
+            .hero-ctas .btn { width: 100%; text-align: center; }
+            .cta-final h2 { font-size: 1.8rem; }
+            .solutions-grid { grid-template-columns: 1fr; }
+            .problems-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">RP <span>Soluções</span></div>
-                <ul class="nav-links">
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#wifi">Wi-Fi Corporativo</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-                <div class="cta-header">
-                    <a href="https://wa.me/5551997820752" class="btn btn-primary btn-sm" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">WhatsApp</a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="eyebrow">🚀 Infraestrutura de TI Corporativa</span>
-                <h1>Redes que <span class="highlight">funcionam.</span> Empresas que <span class="highlight">crescem.</span></h1>
-                <p class="hero-subtitle">Soluções completas em infraestrutura, segurança e monitoramento para empresas que não podem parar. Estabilidade, performance e confiança em cada conexão.</p>
-                
-                <div class="hero-ctas">
-                    <a href="https://wa.me/5551997820752" class="btn btn-primary btn-lg">Solicitar Orçamento via WhatsApp</a>
-                    <a href="#" class="btn btn-secondary btn-lg">Agendar Diagnóstico Gratuito</a>
-                </div>
-
-                <div class="hero-benefits">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div class="benefit-text">
-                            <h3>Suporte 24/7</h3>
-                            <p>Atendimento especializado sempre disponível</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div class="benefit-text">
-                            <h3>Monitoramento Contínuo</h3>
-                            <p>Detecção proativa de problemas</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div class="benefit-text">
-                            <h3>Segurança Premium</h3>
-                            <p>Proteção completa da sua infraestrutura</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROBLEMS SECTION -->
-    <section id="problemas">
-        <div class="container">
-            <div class="section-header">
-                <h2>Problemas que <span style="color: var(--primary);">prejudicam</span> seu negócio</h2>
-                <p>Você enfrenta algum desses desafios?</p>
-            </div>
-            <div class="problems-grid">
-                <div class="problem-card">
-                    <h3>🔴 Internet Instável</h3>
-                    <p>Quedas frequentes de conexão prejudicam a produtividade e geram perdas financeiras.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>🔴 Suporte Lento</h3>
-                    <p>Demora para resolver problemas técnicos impacta diretamente suas operações.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>🔴 Falta de Monitoramento</h3>
-                    <p>Sem visibilidade da rede, você só descobre problemas quando eles já causam danos.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>🔴 Segurança Inadequada</h3>
-                    <p>Redes mal configuradas deixam seus dados vulneráveis a ataques e vazamentos.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>🔴 Infraestrutura Desatualizada</h3>
-                    <p>Equipamentos antigos não suportam as demandas modernas de uma empresa.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>🔴 Gestão Complexa</h3>
-                    <p>Múltiplos sistemas sem integração dificultam o gerenciamento centralizado.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLUTIONS SECTION -->
-    <section id="servicos" class="solutions">
-        <div class="container">
-            <div class="section-header">
-                <h2>Nossas <span style="color: var(--primary);">Soluções</span></h2>
-                <p>Serviços completos para transformar sua infraestrutura de TI</p>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">🌐</div>
-                    <h3>Infraestrutura de Redes</h3>
-                    <p>Projetos, implementação e gestão de redes corporativas robustas e escaláveis.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">🔒</div>
-                    <h3>Segurança da Informação</h3>
-                    <p>Firewalls, VPNs e soluções de segurança de ponta para proteger seus dados.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">📊</div>
-                    <h3>Monitoramento 24/7</h3>
-                    <p>Monitoramento contínuo com alertas em tempo real e relatórios detalhados.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">☁️</div>
-                    <h3>Virtualização & Cloud</h3>
-                    <p>Servidores virtuais, backup em nuvem e soluções de disaster recovery.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">📡</div>
-                    <h3>Wi-Fi Corporativo Inteligente</h3>
-                    <p>Conectividade estável, autenticação segura e gerenciamento centralizado.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">🛠️</div>
-                    <h3>Suporte Técnico Especializado</h3>
-                    <p>Equipe dedicada disponível 24/7 para resolver qualquer problema técnico.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CAROUSEL - CLIENTS -->
-    <section class="carousel-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Empresas que <span style="color: var(--primary);">confiam</span> em nós</h2>
-                <p>Atuamos em diferentes segmentos, oferecendo soluções corporativas confiáveis</p>
-            </div>
-        </div>
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <div class="carousel-item" style="flex-direction: column; gap: 0.5rem;">
-                    <div style="width: 80px; height: 50px; background: rgba(46, 167, 224, 0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-gray);">Logo</div>
-                    <span style="font-size: 0.8rem;">Abrasistem</span>
-                </div>
-                <div class="carousel-item" style="flex-direction: column; gap: 0.5rem;">
-                    <div style="width: 80px; height: 50px; background: rgba(46, 167, 224, 0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-gray);">Logo</div>
-                    <span style="font-size: 0.8rem;">Klein</span>
-                </div>
-                <div class="carousel-item" style="flex-direction: column; gap: 0.5rem;">
-                    <div style="width: 80px; height: 50px; background: rgba(46, 167, 224, 0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-gray);">Logo</div>
-                    <span style="font-size: 0.8rem;">Buffon</span>
-                </div>
-                <div class="carousel-item" style="flex-direction: column; gap: 0.5rem;">
-                    <div style="width: 80px; height: 50px; background: rgba(46, 167, 224, 0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-gray);">Logo</div>
-                    <span style="font-size: 0.8rem;">Refrimak</span>
-                </div>
-                <div class="carousel-item" style="flex-direction: column; gap: 0.5rem;">
-                    <div style="width: 80px; height: 50px; background: rgba(46, 167, 224, 0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-gray);">Logo</div>
-                    <span style="font-size: 0.8rem;">Tamplastec</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CAROUSEL - TECHNOLOGIES -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>Stack <span style="color: var(--primary);">Tecnológica</span></h2>
-                <p>Utilizamos as melhores tecnologias do mercado para garantir qualidade e performance</p>
-            </div>
-        </div>
-        <div class="carousel-container" style="background: var(--light-gray);">
-            <div class="carousel-track">
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Zabbix</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Docker</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Grafana</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Mikrotik</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Ubiquiti</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Fortinet</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Cisco</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Proxmox</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">VMware</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Linux</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Zabbix</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Docker</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Grafana</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Mikrotik</div>
-                <div class="carousel-item" style="display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--text);">Ubiquiti</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WI-FI CORPORATIVO -->
-    <section id="wifi" style="background: var(--light-gray);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Wi-Fi Corporativo <span style="color: var(--primary);">Inteligente</span></h2>
-                <p>Conectividade segura, estável e gerenciada centralmente para sua empresa</p>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">🔐</div>
-                    <h3>Autenticação Segura</h3>
-                    <p>Controle de acesso com múltiplas camadas de segurança e autenticação.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">👥</div>
-                    <h3>Gestão de Visitantes</h3>
-                    <p>Acesso controlado e temporário para visitantes sem comprometer a segurança.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">📱</div>
-                    <h3>Controle de Dispositivos</h3>
-                    <p>Gerenciamento centralizado de todos os dispositivos conectados à rede.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">⚡</div>
-                    <h3>Performance Otimizada</h3>
-                    <p>Balanceamento de carga e otimização para máxima performance e estabilidade.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">📊</div>
-                    <h3>Relatórios Detalhados</h3>
-                    <p>Análise completa de uso, segurança e performance da sua rede Wi-Fi.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">🎯</div>
-                    <h3>Cobertura Total</h3>
-                    <p>Planejamento e implementação para cobertura completa de toda a empresa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section>
-        <div class="container">
-            <div class="section-header">
-                <h2>Como <span style="color: var(--primary);">Funciona</span></h2>
-                <p>Processo simples e eficiente para transformar sua infraestrutura</p>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">1️⃣</div>
-                    <h3>Diagnóstico Completo</h3>
-                    <p>Análise profunda da sua infraestrutura atual, identificando gargalos e oportunidades.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">2️⃣</div>
-                    <h3>Planejamento Estratégico</h3>
-                    <p>Desenvolvimento de solução personalizada alinhada com seus objetivos de negócio.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">3️⃣</div>
-                    <h3>Implementação Profissional</h3>
-                    <p>Execução com mínimo de downtime, seguindo as melhores práticas do mercado.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">4️⃣</div>
-                    <h3>Suporte Contínuo</h3>
-                    <p>Monitoramento, manutenção e suporte 24/7 para garantir performance máxima.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DIFERENCIAIS -->
-    <section style="background: var(--light-gray);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Por que escolher a <span style="color: var(--primary);">RP Soluções</span></h2>
-                <p>Diferenciais que nos destacam no mercado</p>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">👨‍💼</div>
-                    <h3>Equipe Especializada</h3>
-                    <p>Profissionais certificados com anos de experiência em infraestrutura corporativa.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">⚡</div>
-                    <h3>Atendimento Rápido</h3>
-                    <p>Resposta ágil a chamados técnicos com SLA garantido para sua tranquilidade.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">🎯</div>
-                    <h3>Soluções Personalizadas</h3>
-                    <p>Cada projeto é único, desenvolvido especificamente para suas necessidades.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">📈</div>
-                    <h3>Foco em ROI</h3>
-                    <p>Soluções que geram valor real e mensurável para seu negócio.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">🔄</div>
-                    <h3>Stack Moderna</h3>
-                    <p>Utilizamos as tecnologias mais atualizadas e confiáveis do mercado.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">🤝</div>
-                    <h3>Parceria de Longo Prazo</h3>
-                    <p>Relacionamento baseado em confiança, transparência e resultados contínuos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Perguntas <span style="color: var(--primary);">Frequentes</span></h2>
-                <p>Tire suas dúvidas sobre nossos serviços</p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item active">
-                    <div class="faq-question">
-                        <span>Qual é o tempo médio de implementação?</span>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer">
-                        O tempo varia conforme a complexidade do projeto, mas em média leva de 2 a 4 semanas. Realizamos um diagnóstico inicial para definir o cronograma exato.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Vocês oferecem suporte 24/7?</span>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer">
-                        Sim! Oferecemos suporte técnico 24 horas, 7 dias por semana com SLA garantido. Você terá sempre alguém disponível para resolver seus problemas.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Como funciona o monitoramento?</span>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer">
-                        Utilizamos ferramentas de monitoramento de ponta que rastreiam sua infraestrutura 24/7. Você recebe alertas em tempo real de qualquer anomalia.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Qual é o custo de uma solução?</span>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer">
-                        O custo varia conforme suas necessidades específicas. Oferecemos diferentes pacotes e opções de financiamento. Solicite um orçamento personalizado.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Vocês trabalham com empresas pequenas?</span>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer">
-                        Sim! Trabalhamos com empresas de todos os tamanhos. Temos soluções escaláveis que se adaptam ao seu orçamento e necessidades.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Como é feita a migração de sistemas?</span>
-                        <div class="faq-toggle">+</div>
-                    </div>
-                    <div class="faq-answer">
-                        Realizamos migrações com mínimo de downtime, garantindo que seus sistemas continuem funcionando. Temos um plano de contingência para cada situação.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA FINAL -->
+<!-- HEADER -->
+<header>
     <div class="container">
-        <div class="cta-final">
-            <h2>Pronto para transformar sua infraestrutura?</h2>
-            <p>Solicite um diagnóstico gratuito e descubra como podemos melhorar sua rede corporativa.</p>
-            <a href="https://wa.me/5551997820752" class="btn btn-white">Fale com um especialista agora - WhatsApp</a>
+        <nav>
+            <div class="logo">RP <span>Soluções</span></div>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#wifi">Wi-Fi Corporativo</a></li>
+                <li><a href="#tech">Tecnologias</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="cta-header">
+                <a href="https://wa.me/5551997820752" class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.9rem;">WhatsApp</a>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+    <a href="#servicos" class="mobile-link">Serviços</a>
+    <a href="#wifi" class="mobile-link">Wi-Fi Corporativo</a>
+    <a href="#tech" class="mobile-link">Tecnologias</a>
+    <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="https://wa.me/5551997820752" class="btn btn-primary" style="text-align:center;">Falar no WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <span class="eyebrow">🚀 Infraestrutura de TI Corporativa</span>
+            <h1>Redes que <span class="highlight">funcionam.</span> Empresas que <span class="highlight">crescem.</span></h1>
+            <p class="hero-subtitle">Soluções completas em infraestrutura, segurança e monitoramento para empresas que não podem parar. Estabilidade, performance e confiança em cada conexão.</p>
+            <div class="hero-ctas">
+                <a href="https://wa.me/5551997820752" class="btn btn-primary btn-lg">Solicitar Orçamento via WhatsApp</a>
+                <a href="#servicos" class="btn btn-secondary btn-lg">Conhecer os Serviços</a>
+            </div>
+            <div class="hero-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text"><h3>Suporte 24/7</h3><p>Atendimento especializado sempre disponível</p></div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text"><h3>Monitoramento Contínuo</h3><p>Detecção proativa de problemas</p></div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text"><h3>Segurança Premium</h3><p>Proteção completa da sua infraestrutura</p></div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 RP Soluções em TI. Todos os direitos reservados.</p>
-            <p>Infraestrutura • Redes • Segurança • Monitoramento • Suporte Técnico</p>
-            <p style="margin-top: 1rem; opacity: 0.7;">
-                <a href="https://wa.me/5551997820752" style="color: inherit; text-decoration: none;">WhatsApp: +55 51 99782-0752</a> • 
-                <a href="mailto:contato@rpsolucoesti.com.br" style="color: inherit; text-decoration: none;">contato@rpsolucoesti.com.br</a>
-            </p>
+<!-- PROBLEMS -->
+<section style="background:var(--light-gray);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Problemas que <span style="color:var(--primary);">prejudicam</span> seu negócio</h2>
+            <p>Você enfrenta algum desses desafios?</p>
         </div>
-    </footer>
+        <div class="problems-grid">
+            <div class="problem-card"><h3>🔴 Internet Instável</h3><p>Quedas frequentes de conexão prejudicam a produtividade e geram perdas financeiras.</p></div>
+            <div class="problem-card"><h3>🔴 Suporte Lento</h3><p>Demora para resolver problemas técnicos impacta diretamente suas operações.</p></div>
+            <div class="problem-card"><h3>🔴 Falta de Monitoramento</h3><p>Sem visibilidade da rede, você só descobre problemas quando eles já causam danos.</p></div>
+            <div class="problem-card"><h3>🔴 Segurança Inadequada</h3><p>Redes mal configuradas deixam seus dados vulneráveis a ataques e vazamentos.</p></div>
+            <div class="problem-card"><h3>🔴 Infraestrutura Desatualizada</h3><p>Equipamentos antigos não suportam as demandas modernas de uma empresa.</p></div>
+            <div class="problem-card"><h3>🔴 Gestão Complexa</h3><p>Múltiplos sistemas sem integração dificultam o gerenciamento centralizado.</p></div>
+        </div>
+    </div>
+</section>
 
-    <script>
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
+<!-- SOLUTIONS -->
+<section id="servicos">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nossas <span style="color:var(--primary);">Soluções</span></h2>
+            <p>Serviços completos para transformar sua infraestrutura de TI</p>
+        </div>
+        <div class="solutions-grid">
+            <div class="solution-card"><div class="solution-icon">🌐</div><h3>Infraestrutura de Redes</h3><p>Projetos, implementação e gestão de redes corporativas robustas e escaláveis.</p></div>
+            <div class="solution-card"><div class="solution-icon">🔒</div><h3>Segurança da Informação</h3><p>Firewalls, VPNs e soluções de segurança de ponta para proteger seus dados.</p></div>
+            <div class="solution-card"><div class="solution-icon">📊</div><h3>Monitoramento 24/7</h3><p>Monitoramento contínuo com alertas em tempo real e relatórios detalhados.</p></div>
+            <div class="solution-card"><div class="solution-icon">☁️</div><h3>Virtualização & Cloud</h3><p>Servidores virtuais, backup em nuvem e soluções de disaster recovery.</p></div>
+            <div class="solution-card"><div class="solution-icon">📡</div><h3>Wi-Fi Corporativo Inteligente</h3><p>Conectividade estável, autenticação segura e gerenciamento centralizado.</p></div>
+            <div class="solution-card"><div class="solution-icon">🛠️</div><h3>Suporte Técnico Especializado</h3><p>Equipe dedicada disponível 24/7 para resolver qualquer problema técnico.</p></div>
+        </div>
+    </div>
+</section>
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+<!-- CLIENTS CAROUSEL -->
+<section style="background:var(--light-gray);padding:4rem 0;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Empresas que <span style="color:var(--primary);">confiam</span> em nós</h2>
+            <p>Atuamos em diferentes segmentos, oferecendo soluções corporativas confiáveis</p>
+        </div>
+    </div>
+    <div style="max-width:680px;margin:0 auto;padding:0 2rem;">
+        <div class="clients-wrapper">
+            <div class="clients-track">
+                <!-- set 1 -->
+                <div class="client-item"><div class="client-logo-box">ABR</div><span>Abrasistem</span></div>
+                <div class="client-item"><div class="client-logo-box">KLN</div><span>Klein</span></div>
+                <div class="client-item"><div class="client-logo-box">BFF</div><span>Buffon</span></div>
+                <div class="client-item"><div class="client-logo-box">RFR</div><span>Refrimak</span></div>
+                <div class="client-item"><div class="client-logo-box">TMP</div><span>Tamplastec</span></div>
+                <!-- set 2 duplicate -->
+                <div class="client-item"><div class="client-logo-box">ABR</div><span>Abrasistem</span></div>
+                <div class="client-item"><div class="client-logo-box">KLN</div><span>Klein</span></div>
+                <div class="client-item"><div class="client-logo-box">BFF</div><span>Buffon</span></div>
+                <div class="client-item"><div class="client-logo-box">RFR</div><span>Refrimak</span></div>
+                <div class="client-item"><div class="client-logo-box">TMP</div><span>Tamplastec</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TECH STACK CAROUSEL -->
+<section id="tech" style="padding:5rem 0;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Stack <span style="color:var(--primary);">Tecnológica</span></h2>
+            <p>Utilizamos as melhores tecnologias do mercado para garantir qualidade e performance</p>
+        </div>
+    </div>
+    <div class="tech-track-wrapper">
+        <div class="tech-track">
+
+            <!-- ZABBIX -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#D40000"/>
+                        <text x="26" y="23" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="10" fill="white" letter-spacing="0.5">ZABBIX</text>
+                    </svg>
+                </div>
+                <span>Zabbix</span>
+            </div>
+
+            <!-- DOCKER -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#2496ED"/>
+                        <rect x="4" y="14" width="6" height="5" rx="1" fill="white" opacity="0.95"/>
+                        <rect x="12" y="14" width="6" height="5" rx="1" fill="white" opacity="0.95"/>
+                        <rect x="20" y="14" width="6" height="5" rx="1" fill="white" opacity="0.95"/>
+                        <rect x="12" y="8" width="6" height="5" rx="1" fill="white" opacity="0.95"/>
+                        <rect x="20" y="8" width="6" height="5" rx="1" fill="white" opacity="0.95"/>
+                        <path d="M30 17 Q36 13 42 16 Q40 21 32 21 Q27 21 26 18 Q28 17 30 17Z" fill="white" opacity="0.95"/>
+                        <circle cx="41" cy="13" r="1.5" fill="#2496ED"/>
+                        <path d="M28 19 Q26 22 22 22" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/>
+                    </svg>
+                </div>
+                <span>Docker</span>
+            </div>
+
+            <!-- GRAFANA -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#1a1a1a"/>
+                        <circle cx="16" cy="18" r="10" fill="none" stroke="#F46800" stroke-width="3"/>
+                        <polyline points="16,10 16,18 22,18" stroke="#F46800" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="16" cy="18" r="2" fill="#F46800"/>
+                        <text x="38" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="7" fill="#F46800">Gra</text>
+                        <text x="38" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="7" fill="#F46800">fana</text>
+                    </svg>
+                </div>
+                <span>Grafana</span>
+            </div>
+
+            <!-- MIKROTIK -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#293239"/>
+                        <!-- stylized M -->
+                        <polyline points="8,26 8,10 16,20 24,10 24,26" stroke="#E8912A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text x="36" y="16" text-anchor="middle" font-family="Arial" font-weight="800" font-size="6.5" fill="#E8912A">Mikro</text>
+                        <text x="36" y="25" text-anchor="middle" font-family="Arial" font-weight="800" font-size="6.5" fill="#E8912A">Tik</text>
+                    </svg>
+                </div>
+                <span>Mikrotik</span>
+            </div>
+
+            <!-- UBIQUITI -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#0559C9"/>
+                        <!-- U shape -->
+                        <path d="M8 8 L8 22 Q8 29 16 29 Q24 29 24 22 L24 8" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <text x="38" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">Ubiq</text>
+                        <text x="38" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">uiti</text>
+                    </svg>
+                </div>
+                <span>Ubiquiti</span>
+            </div>
+
+            <!-- FORTINET -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#EE3124"/>
+                        <!-- shield -->
+                        <path d="M10 5 L22 5 L22 18 Q16 24 10 18 Z" fill="white" opacity="0.92"/>
+                        <line x1="12" y1="11" x2="20" y2="11" stroke="#EE3124" stroke-width="1.8" stroke-linecap="round"/>
+                        <line x1="12" y1="15" x2="18" y2="15" stroke="#EE3124" stroke-width="1.8" stroke-linecap="round"/>
+                        <text x="37" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">Forti</text>
+                        <text x="37" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">net</text>
+                    </svg>
+                </div>
+                <span>Fortinet</span>
+            </div>
+
+            <!-- CISCO -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#049fd9"/>
+                        <!-- Cisco bars -->
+                        <rect x="3"  y="16" width="4" height="9"  rx="1" fill="white"/>
+                        <rect x="9"  y="11" width="4" height="14" rx="1" fill="white"/>
+                        <rect x="15" y="7"  width="4" height="18" rx="1" fill="white"/>
+                        <rect x="21" y="11" width="4" height="14" rx="1" fill="white"/>
+                        <rect x="27" y="16" width="4" height="9"  rx="1" fill="white"/>
+                        <text x="42" y="22" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="white">Cisco</text>
+                    </svg>
+                </div>
+                <span>Cisco</span>
+            </div>
+
+            <!-- PROXMOX -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#E57000"/>
+                        <!-- X -->
+                        <line x1="6" y1="5"  x2="20" y2="28" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+                        <line x1="20" y1="5" x2="6"  y2="28" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+                        <text x="37" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6.5" fill="white">Prox</text>
+                        <text x="37" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6.5" fill="white">mox</text>
+                    </svg>
+                </div>
+                <span>Proxmox</span>
+            </div>
+
+            <!-- VMWARE -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#607078"/>
+                        <!-- stylized V -->
+                        <polyline points="6,10 16,26 26,10" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <text x="39" y="22" text-anchor="middle" font-family="Arial" font-weight="700" font-size="7" fill="white">VMware</text>
+                    </svg>
+                </div>
+                <span>VMware</span>
+            </div>
+
+            <!-- LINUX -->
+            <div class="tech-item">
+                <div class="tech-logo">
+                    <svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="52" height="36" rx="5" fill="#1a1a1a"/>
+                        <!-- Tux simplified -->
+                        <ellipse cx="16" cy="18" rx="8" ry="12" fill="#F5C518"/>
+                        <ellipse cx="16" cy="15" rx="5" ry="8" fill="#1a1a1a"/>
+                        <ellipse cx="16" cy="22" rx="5" ry="5" fill="white"/>
+                        <circle cx="13.5" cy="11" r="1.8" fill="white"/>
+                        <circle cx="18.5" cy="11" r="1.8" fill="white"/>
+                        <circle cx="14" cy="11.5" r="0.8" fill="#1a1a1a"/>
+                        <circle cx="19" cy="11.5" r="0.8" fill="#1a1a1a"/>
+                        <text x="38" y="22" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="white">Linux</text>
+                    </svg>
+                </div>
+                <span>Linux</span>
+            </div>
+
+            <!-- DUPLICATE SET for seamless loop -->
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#D40000"/><text x="26" y="23" text-anchor="middle" font-family="Arial Black,Arial" font-weight="900" font-size="10" fill="white" letter-spacing="0.5">ZABBIX</text></svg></div><span>Zabbix</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#2496ED"/><rect x="4" y="14" width="6" height="5" rx="1" fill="white" opacity="0.95"/><rect x="12" y="14" width="6" height="5" rx="1" fill="white" opacity="0.95"/><rect x="20" y="14" width="6" height="5" rx="1" fill="white" opacity="0.95"/><rect x="12" y="8" width="6" height="5" rx="1" fill="white" opacity="0.95"/><rect x="20" y="8" width="6" height="5" rx="1" fill="white" opacity="0.95"/><path d="M30 17 Q36 13 42 16 Q40 21 32 21 Q27 21 26 18 Q28 17 30 17Z" fill="white" opacity="0.95"/></svg></div><span>Docker</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#1a1a1a"/><circle cx="16" cy="18" r="10" fill="none" stroke="#F46800" stroke-width="3"/><polyline points="16,10 16,18 22,18" stroke="#F46800" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="18" r="2" fill="#F46800"/><text x="38" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="7" fill="#F46800">Gra</text><text x="38" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="7" fill="#F46800">fana</text></svg></div><span>Grafana</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#293239"/><polyline points="8,26 8,10 16,20 24,10 24,26" stroke="#E8912A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="36" y="16" text-anchor="middle" font-family="Arial" font-weight="800" font-size="6.5" fill="#E8912A">Mikro</text><text x="36" y="25" text-anchor="middle" font-family="Arial" font-weight="800" font-size="6.5" fill="#E8912A">Tik</text></svg></div><span>Mikrotik</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#0559C9"/><path d="M8 8 L8 22 Q8 29 16 29 Q24 29 24 22 L24 8" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/><text x="38" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">Ubiq</text><text x="38" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">uiti</text></svg></div><span>Ubiquiti</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#EE3124"/><path d="M10 5 L22 5 L22 18 Q16 24 10 18 Z" fill="white" opacity="0.92"/><line x1="12" y1="11" x2="20" y2="11" stroke="#EE3124" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="15" x2="18" y2="15" stroke="#EE3124" stroke-width="1.8" stroke-linecap="round"/><text x="37" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">Forti</text><text x="37" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6" fill="white">net</text></svg></div><span>Fortinet</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#049fd9"/><rect x="3" y="16" width="4" height="9" rx="1" fill="white"/><rect x="9" y="11" width="4" height="14" rx="1" fill="white"/><rect x="15" y="7" width="4" height="18" rx="1" fill="white"/><rect x="21" y="11" width="4" height="14" rx="1" fill="white"/><rect x="27" y="16" width="4" height="9" rx="1" fill="white"/><text x="42" y="22" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="white">Cisco</text></svg></div><span>Cisco</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#E57000"/><line x1="6" y1="5" x2="20" y2="28" stroke="white" stroke-width="4.5" stroke-linecap="round"/><line x1="20" y1="5" x2="6" y2="28" stroke="white" stroke-width="4.5" stroke-linecap="round"/><text x="37" y="16" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6.5" fill="white">Prox</text><text x="37" y="25" text-anchor="middle" font-family="Arial" font-weight="700" font-size="6.5" fill="white">mox</text></svg></div><span>Proxmox</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#607078"/><polyline points="6,10 16,26 26,10" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="39" y="22" text-anchor="middle" font-family="Arial" font-weight="700" font-size="7" fill="white">VMware</text></svg></div><span>VMware</span></div>
+            <div class="tech-item"><div class="tech-logo"><svg viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg"><rect width="52" height="36" rx="5" fill="#1a1a1a"/><ellipse cx="16" cy="18" rx="8" ry="12" fill="#F5C518"/><ellipse cx="16" cy="15" rx="5" ry="8" fill="#1a1a1a"/><ellipse cx="16" cy="22" rx="5" ry="5" fill="white"/><circle cx="13.5" cy="11" r="1.8" fill="white"/><circle cx="18.5" cy="11" r="1.8" fill="white"/><circle cx="14" cy="11.5" r="0.8" fill="#1a1a1a"/><circle cx="19" cy="11.5" r="0.8" fill="#1a1a1a"/><text x="38" y="22" text-anchor="middle" font-family="Arial" font-weight="700" font-size="9" fill="white">Linux</text></svg></div><span>Linux</span></div>
+
+        </div>
+    </div>
+</section>
+
+<!-- WI-FI CORPORATIVO -->
+<section id="wifi" style="background:var(--light-gray);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Wi-Fi Corporativo <span style="color:var(--primary);">Inteligente</span></h2>
+            <p>Conectividade segura, estável e gerenciada centralmente para sua empresa</p>
+        </div>
+        <div class="solutions-grid">
+            <div class="solution-card"><div class="solution-icon">🔐</div><h3>Autenticação Segura</h3><p>Controle de acesso com múltiplas camadas de segurança e autenticação.</p></div>
+            <div class="solution-card"><div class="solution-icon">👥</div><h3>Gestão de Visitantes</h3><p>Acesso controlado e temporário para visitantes sem comprometer a segurança.</p></div>
+            <div class="solution-card"><div class="solution-icon">📱</div><h3>Controle de Dispositivos</h3><p>Gerenciamento centralizado de todos os dispositivos conectados à rede.</p></div>
+            <div class="solution-card"><div class="solution-icon">⚡</div><h3>Performance Otimizada</h3><p>Balanceamento de carga e otimização para máxima performance e estabilidade.</p></div>
+            <div class="solution-card"><div class="solution-icon">📊</div><h3>Relatórios Detalhados</h3><p>Análise completa de uso, segurança e performance da sua rede Wi-Fi.</p></div>
+            <div class="solution-card"><div class="solution-icon">🎯</div><h3>Cobertura Total</h3><p>Planejamento e implementação para cobertura completa de toda a empresa.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+    <div class="container">
+        <div class="section-header">
+            <h2>Como <span style="color:var(--primary);">Funciona</span></h2>
+            <p>Processo simples e eficiente para transformar sua infraestrutura</p>
+        </div>
+        <div class="solutions-grid">
+            <div class="solution-card"><div class="solution-icon">1️⃣</div><h3>Diagnóstico Completo</h3><p>Análise profunda da sua infraestrutura atual, identificando gargalos e oportunidades.</p></div>
+            <div class="solution-card"><div class="solution-icon">2️⃣</div><h3>Planejamento Estratégico</h3><p>Desenvolvimento de solução personalizada alinhada com seus objetivos de negócio.</p></div>
+            <div class="solution-card"><div class="solution-icon">3️⃣</div><h3>Implementação Profissional</h3><p>Execução com mínimo de downtime, seguindo as melhores práticas do mercado.</p></div>
+            <div class="solution-card"><div class="solution-icon">4️⃣</div><h3>Suporte Contínuo</h3><p>Monitoramento, manutenção e suporte 24/7 para garantir performance máxima.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section style="background:var(--light-gray);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Por que escolher a <span style="color:var(--primary);">RP Soluções</span></h2>
+            <p>Diferenciais que nos destacam no mercado</p>
+        </div>
+        <div class="solutions-grid">
+            <div class="solution-card"><div class="solution-icon">👨‍💼</div><h3>Equipe Especializada</h3><p>Profissionais certificados com anos de experiência em infraestrutura corporativa.</p></div>
+            <div class="solution-card"><div class="solution-icon">⚡</div><h3>Atendimento Rápido</h3><p>Resposta ágil a chamados técnicos com SLA garantido para sua tranquilidade.</p></div>
+            <div class="solution-card"><div class="solution-icon">🎯</div><h3>Soluções Personalizadas</h3><p>Cada projeto é único, desenvolvido especificamente para suas necessidades.</p></div>
+            <div class="solution-card"><div class="solution-icon">📈</div><h3>Foco em ROI</h3><p>Soluções que geram valor real e mensurável para seu negócio.</p></div>
+            <div class="solution-card"><div class="solution-icon">🔄</div><h3>Stack Moderna</h3><p>Utilizamos as tecnologias mais atualizadas e confiáveis do mercado.</p></div>
+            <div class="solution-card"><div class="solution-icon">🤝</div><h3>Parceria de Longo Prazo</h3><p>Relacionamento baseado em confiança, transparência e resultados contínuos.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <div class="section-header">
+            <h2>Perguntas <span style="color:var(--primary);">Frequentes</span></h2>
+            <p>Tire suas dúvidas sobre nossos serviços</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item active">
+                <div class="faq-question"><span>Qual é o tempo médio de implementação?</span><div class="faq-toggle">+</div></div>
+                <div class="faq-answer">O tempo varia conforme a complexidade do projeto, mas em média leva de 2 a 4 semanas. Realizamos um diagnóstico inicial para definir o cronograma exato.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Vocês oferecem suporte 24/7?</span><div class="faq-toggle">+</div></div>
+                <div class="faq-answer">Sim! Oferecemos suporte técnico 24 horas, 7 dias por semana com SLA garantido. Você terá sempre alguém disponível para resolver seus problemas.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Como funciona o monitoramento?</span><div class="faq-toggle">+</div></div>
+                <div class="faq-answer">Utilizamos ferramentas de monitoramento de ponta que rastreiam sua infraestrutura 24/7. Você recebe alertas em tempo real de qualquer anomalia.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Qual é o custo de uma solução?</span><div class="faq-toggle">+</div></div>
+                <div class="faq-answer">O custo varia conforme suas necessidades específicas. Oferecemos diferentes pacotes e opções de financiamento. Solicite um orçamento personalizado.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Vocês trabalham com empresas pequenas?</span><div class="faq-toggle">+</div></div>
+                <div class="faq-answer">Sim! Trabalhamos com empresas de todos os tamanhos. Temos soluções escaláveis que se adaptam ao seu orçamento e necessidades.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Como é feita a migração de sistemas?</span><div class="faq-toggle">+</div></div>
+                <div class="faq-answer">Realizamos migrações com mínimo de downtime, garantindo que seus sistemas continuem funcionando. Temos um plano de contingência para cada situação.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="container">
+    <div class="cta-final">
+        <h2>Pronto para transformar sua infraestrutura?</h2>
+        <p>Solicite um diagnóstico gratuito e descubra como podemos melhorar sua rede corporativa.</p>
+        <a href="https://wa.me/5551997820752" class="btn btn-white">Fale com um especialista agora — WhatsApp</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 RP Soluções em TI. Todos os direitos reservados.</p>
+        <p>Infraestrutura • Redes • Segurança • Monitoramento • Suporte Técnico</p>
+        <p style="margin-top:1rem;">
+            <a href="https://wa.me/5551997820752">WhatsApp: +55 51 99782-0752</a> •
+            <a href="mailto:contato@rpsolucoesti.com.br">contato@rpsolucoesti.com.br</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+    // FAQ — accordion (one open at a time, smooth)
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const isOpen = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isOpen) item.classList.add('active');
         });
-    </script>
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileNav.classList.toggle('open');
+    });
+    document.querySelectorAll('.mobile-link, .mobile-nav .btn').forEach(el => {
+        el.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileNav.classList.remove('open');
+        });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        });
+    });
+</script>
 </body>
 </html>
