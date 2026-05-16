@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Soluções em TI - Infraestrutura, Redes e Segurança Corporativa</title>
+    <meta name="description" content="Soluções completas em infraestrutura de TI, redes corporativas, segurança e monitoramento para empresas que buscam estabilidade e performance.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2EA7E0;
+            --secondary: #7ED957;
+            --accent: #FF7A00;
+            --dark: #000000;
+            --light-gray: #EAEAEA;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --bg-white: #ffffff;
+            --border-gray: #e0e0e0;
+            --transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.2rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-header {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e7fa8 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(46, 167, 224, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(46, 167, 224, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-dark);
+            border: 1.5px solid var(--border-gray);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(46, 167, 224, 0.05) 0%, rgba(126, 217, 87, 0.03) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(46, 167, 224, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            background: rgba(46, 167, 224, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+
+        h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        h1 .highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        .hero-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(46, 167, 224, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .benefit-text p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* SECTION STYLES */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* PROBLEMS SECTION */
+        .problems {
+            background: var(--light-gray);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-gray);
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(46, 167, 224, 0.15);
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .problem-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* SOLUTIONS SECTION */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-gray);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .solution-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(46, 167, 224, 0.1);
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(46, 167, 224, 0.1) 0%, rgba(126, 217, 87, 0.1) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .solution-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CAROUSEL SECTION */
+        .carousel-section {
+            background: var(--light-gray);
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            background: white;
+            border-radius: 12px;
+            padding: 3rem 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            animation: scroll 30s linear infinite;
+            padding: 0 2rem;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .carousel-item {
+            min-width: 150px;
+            height: 100px;
+            background: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+
+        .carousel-item:hover {
+            filter: grayscale(0%);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(46, 167, 224, 0.2);
+        }
+
+        /* FAQ SECTION */
+        .faq {
+            background: var(--light-gray);
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(46, 167, 224, 0.05);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-gray);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* CTA SECTION */
+        .cta-final {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            border-radius: 12px;
+            margin: 5rem 0;
+        }
+
+        .cta-final h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--dark);
+            padding: 1rem 2rem;
+            font-weight: 600;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">RP <span>Soluções</span></div>
+                <ul class="nav-links">
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#wifi">Wi-Fi Corporativo</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <div class="cta-header">
+                    <a href="https://wa.me/5511999999999" class="btn btn-primary btn-sm" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">WhatsApp</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="eyebrow">🚀 Infraestrutura de TI Corporativa</span>
+                <h1>Redes que <span class="highlight">funcionam.</span> Empresas que <span class="highlight">crescem.</span></h1>
+                <p class="hero-subtitle">Soluções completas em infraestrutura, segurança e monitoramento para empresas que não podem parar. Estabilidade, performance e confiança em cada conexão.</p>
+                
+                <div class="hero-ctas">
+                    <a href="https://wa.me/5511999999999" class="btn btn-primary btn-lg">Solicitar Orçamento</a>
+                    <a href="#" class="btn btn-secondary btn-lg">Agendar Diagnóstico Gratuito</a>
+                </div>
+
+                <div class="hero-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">
+                            <h3>Suporte 24/7</h3>
+                            <p>Atendimento especializado sempre disponível</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">
+                            <h3>Monitoramento Contínuo</h3>
+                            <p>Detecção proativa de problemas</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">
+                            <h3>Segurança Premium</h3>
+                            <p>Proteção completa da sua infraestrutura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMS SECTION -->
+    <section id="problemas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Problemas que <span style="color: var(--primary);">prejudicam</span> seu negócio</h2>
+                <p>Você enfrenta algum desses desafios?</p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>🔴 Internet Instável</h3>
+                    <p>Quedas frequentes de conexão prejudicam a produtividade e geram perdas financeiras.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🔴 Suporte Lento</h3>
+                    <p>Demora para resolver problemas técnicos impacta diretamente suas operações.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🔴 Falta de Monitoramento</h3>
+                    <p>Sem visibilidade da rede, você só descobre problemas quando eles já causam danos.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🔴 Segurança Inadequada</h3>
+                    <p>Redes mal configuradas deixam seus dados vulneráveis a ataques e vazamentos.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🔴 Infraestrutura Desatualizada</h3>
+                    <p>Equipamentos antigos não suportam as demandas modernas de uma empresa.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>🔴 Gestão Complexa</h3>
+                    <p>Múltiplos sistemas sem integração dificultam o gerenciamento centralizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTIONS SECTION -->
+    <section id="servicos" class="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossas <span style="color: var(--primary);">Soluções</span></h2>
+                <p>Serviços completos para transformar sua infraestrutura de TI</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🌐</div>
+                    <h3>Infraestrutura de Redes</h3>
+                    <p>Projetos, implementação e gestão de redes corporativas robustas e escaláveis.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🔒</div>
+                    <h3>Segurança da Informação</h3>
+                    <p>Firewalls, VPNs e soluções de segurança de ponta para proteger seus dados.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📊</div>
+                    <h3>Monitoramento 24/7</h3>
+                    <p>Monitoramento contínuo com alertas em tempo real e relatórios detalhados.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">☁️</div>
+                    <h3>Virtualização & Cloud</h3>
+                    <p>Servidores virtuais, backup em nuvem e soluções de disaster recovery.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📡</div>
+                    <h3>Wi-Fi Corporativo Inteligente</h3>
+                    <p>Conectividade estável, autenticação segura e gerenciamento centralizado.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🛠️</div>
+                    <h3>Suporte Técnico Especializado</h3>
+                    <p>Equipe dedicada disponível 24/7 para resolver qualquer problema técnico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAROUSEL - CLIENTS -->
+    <section class="carousel-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Empresas que <span style="color: var(--primary);">confiam</span> em nós</h2>
+                <p>Atuamos em diferentes segmentos, oferecendo soluções corporativas confiáveis</p>
+            </div>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-item">Abrasistem</div>
+                <div class="carousel-item">Agrocomercial Klein</div>
+                <div class="carousel-item">Buffon</div>
+                <div class="carousel-item">Refrimak</div>
+                <div class="carousel-item">Tamplastec</div>
+                <div class="carousel-item">Abrasistem</div>
+                <div class="carousel-item">Agrocomercial Klein</div>
+                <div class="carousel-item">Buffon</div>
+                <div class="carousel-item">Refrimak</div>
+                <div class="carousel-item">Tamplastec</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAROUSEL - TECHNOLOGIES -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Stack <span style="color: var(--primary);">Tecnológica</span></h2>
+                <p>Utilizamos as melhores tecnologias do mercado para garantir qualidade e performance</p>
+            </div>
+        </div>
+        <div class="carousel-container" style="background: var(--light-gray);">
+            <div class="carousel-track">
+                <div class="carousel-item">Zabbix</div>
+                <div class="carousel-item">Docker</div>
+                <div class="carousel-item">Grafana</div>
+                <div class="carousel-item">Mikrotik</div>
+                <div class="carousel-item">Ubiquiti</div>
+                <div class="carousel-item">Fortinet</div>
+                <div class="carousel-item">Cisco</div>
+                <div class="carousel-item">Proxmox</div>
+                <div class="carousel-item">VMware</div>
+                <div class="carousel-item">Linux</div>
+                <div class="carousel-item">Zabbix</div>
+                <div class="carousel-item">Docker</div>
+                <div class="carousel-item">Grafana</div>
+                <div class="carousel-item">Mikrotik</div>
+                <div class="carousel-item">Ubiquiti</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WI-FI CORPORATIVO -->
+    <section id="wifi" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Wi-Fi Corporativo <span style="color: var(--primary);">Inteligente</span></h2>
+                <p>Conectividade segura, estável e gerenciada centralmente para sua empresa</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">🔐</div>
+                    <h3>Autenticação Segura</h3>
+                    <p>Controle de acesso com múltiplas camadas de segurança e autenticação.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">👥</div>
+                    <h3>Gestão de Visitantes</h3>
+                    <p>Acesso controlado e temporário para visitantes sem comprometer a segurança.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📱</div>
+                    <h3>Controle de Dispositivos</h3>
+                    <p>Gerenciamento centralizado de todos os dispositivos conectados à rede.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">⚡</div>
+                    <h3>Performance Otimizada</h3>
+                    <p>Balanceamento de carga e otimização para máxima performance e estabilidade.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📊</div>
+                    <h3>Relatórios Detalhados</h3>
+                    <p>Análise completa de uso, segurança e performance da sua rede Wi-Fi.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>Cobertura Total</h3>
+                    <p>Planejamento e implementação para cobertura completa de toda a empresa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Como <span style="color: var(--primary);">Funciona</span></h2>
+                <p>Processo simples e eficiente para transformar sua infraestrutura</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">1️⃣</div>
+                    <h3>Diagnóstico Completo</h3>
+                    <p>Análise profunda da sua infraestrutura atual, identificando gargalos e oportunidades.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">2️⃣</div>
+                    <h3>Planejamento Estratégico</h3>
+                    <p>Desenvolvimento de solução personalizada alinhada com seus objetivos de negócio.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">3️⃣</div>
+                    <h3>Implementação Profissional</h3>
+                    <p>Execução com mínimo de downtime, seguindo as melhores práticas do mercado.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">4️⃣</div>
+                    <h3>Suporte Contínuo</h3>
+                    <p>Monitoramento, manutenção e suporte 24/7 para garantir performance máxima.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por que escolher a <span style="color: var(--primary);">RP Soluções</span></h2>
+                <p>Diferenciais que nos destacam no mercado</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">👨‍💼</div>
+                    <h3>Equipe Especializada</h3>
+                    <p>Profissionais certificados com anos de experiência em infraestrutura corporativa.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">⚡</div>
+                    <h3>Atendimento Rápido</h3>
+                    <p>Resposta ágil a chamados técnicos com SLA garantido para sua tranquilidade.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>Soluções Personalizadas</h3>
+                    <p>Cada projeto é único, desenvolvido especificamente para suas necessidades.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📈</div>
+                    <h3>Foco em ROI</h3>
+                    <p>Soluções que geram valor real e mensurável para seu negócio.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🔄</div>
+                    <h3>Stack Moderna</h3>
+                    <p>Utilizamos as tecnologias mais atualizadas e confiáveis do mercado.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🤝</div>
+                    <h3>Parceria de Longo Prazo</h3>
+                    <p>Relacionamento baseado em confiança, transparência e resultados contínuos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Perguntas <span style="color: var(--primary);">Frequentes</span></h2>
+                <p>Tire suas dúvidas sobre nossos serviços</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>Qual é o tempo médio de implementação?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        O tempo varia conforme a complexidade do projeto, mas em média leva de 2 a 4 semanas. Realizamos um diagnóstico inicial para definir o cronograma exato.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Vocês oferecem suporte 24/7?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! Oferecemos suporte técnico 24 horas, 7 dias por semana com SLA garantido. Você terá sempre alguém disponível para resolver seus problemas.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona o monitoramento?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Utilizamos ferramentas de monitoramento de ponta que rastreiam sua infraestrutura 24/7. Você recebe alertas em tempo real de qualquer anomalia.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual é o custo de uma solução?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        O custo varia conforme suas necessidades específicas. Oferecemos diferentes pacotes e opções de financiamento. Solicite um orçamento personalizado.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Vocês trabalham com empresas pequenas?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! Trabalhamos com empresas de todos os tamanhos. Temos soluções escaláveis que se adaptam ao seu orçamento e necessidades.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como é feita a migração de sistemas?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Realizamos migrações com mínimo de downtime, garantindo que seus sistemas continuem funcionando. Temos um plano de contingência para cada situação.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <div class="container">
+        <div class="cta-final">
+            <h2>Pronto para transformar sua infraestrutura?</h2>
+            <p>Solicite um diagnóstico gratuito e descubra como podemos melhorar sua rede corporativa.</p>
+            <a href="https://wa.me/5511999999999" class="btn btn-white">Fale com um especialista agora</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 RP Soluções em TI. Todos os direitos reservados.</p>
+            <p>Infraestrutura • Redes • Segurança • Monitoramento • Suporte Técnico</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
