@@ -7,7 +7,7 @@
     <meta name="description" content="Soluções completas em infraestrutura de TI, redes corporativas, segurança e monitoramento para empresas que buscam estabilidade e performance.">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232EA7E0'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='14' fill='white'>RP</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%235FB4EB'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='700' font-size='14' fill='white'>RP</text></svg>">
 
     <!-- Open Graph -->
     <meta property="og:title" content="RP Soluções em TI - Infraestrutura, Redes e Segurança Corporativa">
@@ -31,9 +31,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #2EA7E0;
-            --secondary: #7ED957;
-            --accent: #FF7A00;
+            --primary: #5FB4EB;
+            --secondary: #81CF61;
+            --accent: #EC750F;
             --dark: #000000;
             --light-gray: #EAEAEA;
             --text-dark: #1a1a1a;
@@ -100,10 +100,10 @@
             display: inline-block; text-align: center;
         }
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e7fa8 100%);
-            color: white; box-shadow: 0 4px 15px rgba(46,167,224,0.3);
+            background: var(--primary);
+            color: white; box-shadow: 0 4px 10px rgba(95,180,235,0.35);
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(46,167,224,0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(95,180,235,0.4); }
         .btn-secondary { background: transparent; color: var(--text-dark); border: 1.5px solid var(--border-gray); }
         .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
         .btn-lg { padding: 1rem 2rem; font-size: 1rem; }
@@ -113,13 +113,13 @@
         /* HERO */
         .hero {
             margin-top: 80px; padding: 6rem 0;
-            background: linear-gradient(135deg, rgba(46,167,224,0.05) 0%, rgba(126,217,87,0.03) 100%);
+            background: #f7fbfe;
             position: relative; overflow: hidden;
         }
         .hero::before {
             content: ''; position: absolute; top: -50%; right: -10%;
             width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(46,167,224,0.1) 0%, transparent 70%);
+            background: rgba(95,180,235,0.08);
             border-radius: 50%; pointer-events: none;
         }
         .hero-content { position: relative; z-index: 1; }
@@ -127,21 +127,20 @@
         .eyebrow {
             display: inline-block; font-size: 0.85rem; font-weight: 600;
             color: var(--primary); text-transform: uppercase; letter-spacing: 1px;
-            margin-bottom: 1rem; background: rgba(46,167,224,0.1);
+            margin-bottom: 1rem; background: rgba(95,180,235,0.1);
             padding: 0.5rem 1rem; border-radius: 50px;
         }
 
         h1 { font-family: 'Sora', sans-serif; font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; color: var(--text-dark); }
         h1 .highlight {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            color: var(--primary);
         }
 
         .hero-subtitle { font-size: 1.2rem; color: var(--text-gray); max-width: 600px; margin-bottom: 2rem; line-height: 1.8; }
         .hero-ctas { display: flex; gap: 1.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
         .hero-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2rem; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--border-gray); }
         .benefit-item { display: flex; gap: 1rem; }
-        .benefit-icon { width: 40px; height: 40px; background: rgba(46,167,224,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; color: var(--primary); }
+        .benefit-icon { width: 40px; height: 40px; background: rgba(95,180,235,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; color: var(--primary); }
         .benefit-text h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
         .benefit-text p { font-size: 0.85rem; color: var(--text-gray); }
 
@@ -154,7 +153,7 @@
         /* PROBLEMS */
         .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 2rem; }
         .problem-card { background: white; padding: 2rem; border-radius: 12px; border: 1px solid var(--border-gray); transition: var(--transition); }
-        .problem-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 30px rgba(46,167,224,0.15); }
+        .problem-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 12px 30px rgba(95,180,235,0.15); }
         .problem-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
         .problem-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; }
         .problem-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
@@ -164,8 +163,8 @@
         /* SOLUTIONS */
         .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 2.5rem; }
         .solution-card { background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid var(--border-gray); text-align: center; transition: var(--transition); }
-        .solution-card:hover { border-color: var(--primary); box-shadow: 0 12px 30px rgba(46,167,224,0.1); transform: translateY(-3px); }
-        .solution-icon { width: 60px; height: 60px; background: linear-gradient(135deg, rgba(46,167,224,0.1) 0%, rgba(126,217,87,0.1) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1.5rem; color: var(--primary); }
+        .solution-card:hover { border-color: var(--primary); box-shadow: 0 12px 30px rgba(95,180,235,0.1); transform: translateY(-3px); }
+        .solution-icon { width: 60px; height: 60px; background: rgba(95,180,235,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin: 0 auto 1.5rem; color: var(--primary); }
         .solution-card h3 { font-size: 1.2rem; margin-bottom: 1rem; }
         .solution-card p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.7; }
 
@@ -202,19 +201,21 @@
         }
         .client-logo-box {
             width: 64px; height: 42px;
-            background: linear-gradient(135deg, rgba(46,167,224,0.08), rgba(126,217,87,0.08));
+            background: #f0f8fe;
             border-radius: 6px; display: flex; align-items: center; justify-content: center;
             font-weight: 800; font-size: 0.7rem; color: var(--primary); letter-spacing: 0.5px;
         }
         .client-item span { font-size: 0.75rem; font-weight: 500; color: var(--text-gray); }
+        .client-logo-img { width: 80px; height: 44px; object-fit: contain; filter: grayscale(30%); transition: filter 0.3s; }
+        .client-item:hover .client-logo-img { filter: grayscale(0%); }
 
         /* TECH CAROUSEL */
         .tech-track-wrapper { overflow: hidden; position: relative; }
         .tech-track-wrapper::before, .tech-track-wrapper::after {
             content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
         }
-        .tech-track-wrapper::before { left: 0; background: linear-gradient(to right, #fff, transparent); }
-        .tech-track-wrapper::after  { right: 0; background: linear-gradient(to left, #fff, transparent); }
+        .tech-track-wrapper::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .tech-track-wrapper::after  { right: 0; background: linear-gradient(to left, white, transparent); }
 
         .tech-track {
             display: flex; gap: 1.5rem; padding: 0.5rem 1rem;
@@ -233,7 +234,7 @@
             background: white; border: 1px solid var(--border-gray);
             border-radius: 12px; padding: 1rem; transition: var(--transition); cursor: default;
         }
-        .tech-item:hover { border-color: var(--primary); box-shadow: 0 8px 20px rgba(46,167,224,0.15); transform: translateY(-3px); }
+        .tech-item:hover { border-color: var(--primary); box-shadow: 0 8px 20px rgba(95,180,235,0.15); transform: translateY(-3px); }
         .tech-logo { width: 52px; height: 40px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .tech-logo svg { width: 100%; height: 100%; }
         .tech-item span { font-size: 0.72rem; font-weight: 600; color: var(--text-gray); }
@@ -242,14 +243,14 @@
         .faq-container { max-width: 700px; margin: 0 auto; }
         .faq-item { background: white; border: 1px solid var(--border-gray); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
         .faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: var(--transition); }
-        .faq-question:hover { background: rgba(46,167,224,0.05); color: var(--primary); }
+        .faq-question:hover { background: rgba(95,180,235,0.05); color: var(--primary); }
         .faq-answer { padding: 0 1.5rem; color: var(--text-gray); max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
         .faq-item.active .faq-answer { max-height: 200px; padding: 0 1.5rem 1.5rem; }
         .faq-toggle { width: 24px; height: 24px; border: 2px solid currentColor; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; transition: transform 0.35s ease; }
         .faq-item.active .faq-toggle { transform: rotate(45deg); }
 
         /* CTA */
-        .cta-final { background: linear-gradient(135deg, var(--dark) 0%, #1a1a1a 100%); color: white; text-align: center; padding: 5rem 2rem; border-radius: 16px; margin: 5rem 0; }
+        .cta-final { background: #111111; color: white; text-align: center; padding: 5rem 2rem; border-radius: 16px; margin: 5rem 0; }
         .cta-final h2 { font-family: 'Sora', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
         .cta-final p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
 
@@ -259,19 +260,62 @@
         footer a { color: inherit; text-decoration: none; transition: var(--transition); }
         footer a:hover { color: var(--primary); opacity: 1; }
 
-        /* RESPONSIVE */
+        /* ── FLUID TYPOGRAPHY & SPACING ── */
+        h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); }
+        .section-header h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+        .hero-subtitle { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+        .cta-final h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); }
+
+        /* ── FLUID GRIDS ── */
+        .solutions-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+        .problems-grid  { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+
+        /* ── TABLET ── */
+        @media (max-width: 900px) {
+            .container { padding: 0 1.5rem; }
+            .nav-links { gap: 1.8rem; }
+            section { padding: 4rem 0; }
+            .hero { padding: 4rem 0; margin-top: 72px; }
+            .hero-benefits { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ── MOBILE ── */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .hero { padding: 3rem 0; }
-            .section-header h2 { font-size: 1.8rem; }
+            .cta-header .btn { display: none; }
+            .hero { padding: 3rem 0; margin-top: 64px; }
             .hero-ctas { flex-direction: column; }
-            .hero-ctas .btn { width: 100%; text-align: center; }
-            .cta-final h2 { font-size: 1.8rem; }
-            .solutions-grid { grid-template-columns: 1fr; }
-            .problems-grid { grid-template-columns: 1fr; }
+            .hero-ctas .btn { width: 100%; }
+            .hero-benefits { grid-template-columns: 1fr; }
+            .solutions-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .problems-grid  { grid-template-columns: 1fr; gap: 1.2rem; }
+            .clients-wrapper { max-width: 100%; border-radius: 0; }
+            .cta-final { padding: 3rem 1.5rem; border-radius: 12px; margin: 3rem 0; }
+            section { padding: 3rem 0; }
         }
+
+        /* ── SMALL MOBILE ── */
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            .solution-card { padding: 1.75rem 1.5rem; }
+            .problem-card  { padding: 1.5rem; }
+            .tech-item { min-width: 96px; height: 88px; }
+            .faq-question { padding: 1.2rem; font-size: 0.9rem; }
+        }
+
+        /* ── WIDE SCREENS / HIGH ZOOM ── */
+        @media (min-width: 1400px) {
+            .container { max-width: 1320px; }
+        }
+        @media (min-width: 1800px) {
+            .container { max-width: 1600px; }
+            h1 { font-size: 4rem; }
+        }
+
+        /* ── PREVENT OVERFLOW AT ANY ZOOM ── */
+        img, svg, video { max-width: 100%; height: auto; }
+        .tech-track-wrapper { max-width: 100vw; }
     </style>
 </head>
 <body>
@@ -382,17 +426,67 @@
         <div class="clients-wrapper">
             <div class="clients-track">
                 <!-- set 1 -->
-                <div class="client-item"><div class="client-logo-box">ABR</div><span>Abrasistem</span></div>
-                <div class="client-item"><div class="client-logo-box">KLN</div><span>Klein</span></div>
-                <div class="client-item"><div class="client-logo-box">BFF</div><span>Buffon</span></div>
-                <div class="client-item"><div class="client-logo-box">RFR</div><span>Refrimak</span></div>
-                <div class="client-item"><div class="client-logo-box">TMP</div><span>Tamplastec</span></div>
-                <!-- set 2 duplicate -->
-                <div class="client-item"><div class="client-logo-box">ABR</div><span>Abrasistem</span></div>
-                <div class="client-item"><div class="client-logo-box">KLN</div><span>Klein</span></div>
-                <div class="client-item"><div class="client-logo-box">BFF</div><span>Buffon</span></div>
-                <div class="client-item"><div class="client-logo-box">RFR</div><span>Refrimak</span></div>
-                <div class="client-item"><div class="client-logo-box">TMP</div><span>Tamplastec</span></div>
+                <div class="client-item">
+                    <img src="https://logo.clearbit.com/abrasistem.com.br" alt="Abrasistem" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">ABR</div>
+                    <span>Abrasistem</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://logo.clearbit.com/agroklein.com.br" alt="AgroKlein" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">KLN</div>
+                    <span>Klein</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://buffon.com.br/images/logo-buffon.jpg" alt="Buffon" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">BFF</div>
+                    <span>Buffon</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://refrimak.com.br/wp-content/uploads/Logo-Refrimak-60px.png" alt="Refrimak" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">RFR</div>
+                    <span>Refrimak</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://logo.clearbit.com/tamplastec.com.br" alt="Tamplastec" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">TMP</div>
+                    <span>Tamplastec</span>
+                </div>
+                <!-- set 2 duplicate for seamless loop -->
+                <div class="client-item">
+                    <img src="https://logo.clearbit.com/abrasistem.com.br" alt="Abrasistem" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">ABR</div>
+                    <span>Abrasistem</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://logo.clearbit.com/agroklein.com.br" alt="AgroKlein" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">KLN</div>
+                    <span>Klein</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://buffon.com.br/images/logo-buffon.jpg" alt="Buffon" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">BFF</div>
+                    <span>Buffon</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://refrimak.com.br/wp-content/uploads/Logo-Refrimak-60px.png" alt="Refrimak" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">RFR</div>
+                    <span>Refrimak</span>
+                </div>
+                <div class="client-item">
+                    <img src="https://logo.clearbit.com/tamplastec.com.br" alt="Tamplastec" class="client-logo-img"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="client-logo-box" style="display:none">TMP</div>
+                    <span>Tamplastec</span>
+                </div>
             </div>
         </div>
     </div>
