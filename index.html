@@ -318,6 +318,116 @@
         /* ── PREVENT OVERFLOW AT ANY ZOOM ── */
         img, svg, video { max-width: 100%; height: auto; }
         .tech-track-wrapper { max-width: 100vw; }
+
+        /* ═══════════════════════════════════════
+           PREVIEW — MULTI-COLOR BRAND VERSION
+           Blue: #80CAED | Orange: #EE7A17 | Green: #81CA5E
+        ═══════════════════════════════════════ */
+
+        /* Eyebrow tag → orange */
+        .eyebrow {
+            color: #EE7A17 !important;
+            background: rgba(238,122,23,0.1) !important;
+        }
+        .eyebrow i { color: #EE7A17; }
+
+        /* Hero highlight words → keep blue, but second highlight → green */
+        h1 .highlight:first-child { color: #80CAED !important; }
+        h1 .highlight:last-child  { color: #81CA5E !important; }
+
+        /* Benefit icons: alternate colors */
+        .benefit-item:nth-child(1) .benefit-icon { background: rgba(238,122,23,0.12) !important; color: #EE7A17 !important; }
+        .benefit-item:nth-child(2) .benefit-icon { background: rgba(129,202,93,0.12) !important; color: #81CA5E !important; }
+        .benefit-item:nth-child(3) .benefit-icon { background: rgba(128,202,237,0.12) !important; color: #80CAED !important; }
+
+        /* Problem section header accent → orange */
+        #problems-section .section-header h2 span { color: #EE7A17 !important; }
+
+        /* Problem icons → orange */
+        .problem-icon {
+            background: rgba(238,122,23,0.1) !important;
+            color: #EE7A17 !important;
+        }
+        .problem-card:hover {
+            border-color: #EE7A17 !important;
+            box-shadow: 0 12px 30px rgba(238,122,23,0.15) !important;
+        }
+
+        /* Solution cards: rotate accent colors */
+        .solution-card:nth-child(1) .solution-icon,
+        .solution-card:nth-child(4) .solution-icon { background: rgba(128,202,237,0.12) !important; color: #80CAED !important; }
+        .solution-card:nth-child(2) .solution-icon,
+        .solution-card:nth-child(5) .solution-icon { background: rgba(238,122,23,0.12) !important; color: #EE7A17 !important; }
+        .solution-card:nth-child(3) .solution-icon,
+        .solution-card:nth-child(6) .solution-icon { background: rgba(129,202,93,0.12) !important; color: #81CA5E !important; }
+
+        .solution-card:hover { border-color: #EE7A17 !important; box-shadow: 0 12px 30px rgba(238,122,23,0.12) !important; }
+
+        /* Section headers: accent the colored word differently per section */
+        section:nth-of-type(odd)  .section-header h2 span { color: #EE7A17 !important; }
+        section:nth-of-type(even) .section-header h2 span { color: #81CA5E !important; }
+        #servicos .section-header h2 span { color: #80CAED !important; }
+        #tech     .section-header h2 span { color: #EE7A17 !important; }
+        #wifi     .section-header h2 span { color: #81CA5E !important; }
+        #faq      .section-header h2 span { color: #EE7A17 !important; }
+
+        /* How it works steps → numbered with orange */
+        #how-it-works .solution-card:nth-child(1) .solution-icon { background: rgba(238,122,23,0.15) !important; color: #EE7A17 !important; }
+        #how-it-works .solution-card:nth-child(2) .solution-icon { background: rgba(128,202,237,0.15) !important; color: #80CAED !important; }
+        #how-it-works .solution-card:nth-child(3) .solution-icon { background: rgba(238,122,23,0.15) !important; color: #EE7A17 !important; }
+        #how-it-works .solution-card:nth-child(4) .solution-icon { background: rgba(129,202,93,0.15) !important; color: #81CA5E !important; }
+
+        /* CTA Final → orange accent instead of plain dark */
+        .cta-final {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1a0a 100%) !important;
+            border-top: 4px solid #EE7A17 !important;
+        }
+        .cta-final h2 span { color: #EE7A17; }
+        .btn-white:hover { color: #EE7A17 !important; }
+
+        /* FAQ active → orange highlight */
+        .faq-item.active .faq-question { color: #EE7A17 !important; }
+        .faq-item.active { border-color: #EE7A17 !important; }
+        .faq-question:hover { background: rgba(238,122,23,0.05) !important; color: #EE7A17 !important; }
+
+        /* Sections with light gray bg → subtle left border on cards */
+        section[style*="light-gray"] .solution-card:nth-child(3n+1) { border-left: 3px solid #80CAED !important; }
+        section[style*="light-gray"] .solution-card:nth-child(3n+2) { border-left: 3px solid #EE7A17 !important; }
+        section[style*="light-gray"] .solution-card:nth-child(3n+3) { border-left: 3px solid #81CA5E !important; }
+
+        /* Tech card hover → green */
+        .tech-item:hover { border-color: #81CA5E !important; box-shadow: 0 8px 20px rgba(129,202,93,0.2) !important; }
+
+        /* WhatsApp button → keep green (matches WhatsApp branding) */
+        .cta-header .btn-primary,
+        .mobile-nav .btn-primary {
+            background: #25D366 !important;
+            box-shadow: 0 4px 10px rgba(37,211,102,0.3) !important;
+        }
+        .cta-header .btn-primary:hover { box-shadow: 0 8px 20px rgba(37,211,102,0.4) !important; }
+
+        /* Hero primary CTA → orange */
+        .hero-ctas .btn-primary {
+            background: #EE7A17 !important;
+            box-shadow: 0 4px 15px rgba(238,122,23,0.35) !important;
+        }
+        .hero-ctas .btn-primary:hover { box-shadow: 0 8px 25px rgba(238,122,23,0.5) !important; }
+
+        /* Secondary btn border hover → orange */
+        .btn-secondary:hover { border-color: #EE7A17 !important; color: #EE7A17 !important; }
+
+        /* Nav link hover → orange */
+        .nav-links a:hover { color: #EE7A17 !important; }
+
+        /* Footer links → orange on hover */
+        footer a:hover { color: #EE7A17 !important; }
+
+        /* Section header accent on clients */
+        .clients-section .section-header h2 span { color: #81CA5E !important; }
+
+        /* Client logo box bg */
+        .client-logo-box { background: rgba(129,202,93,0.1) !important; color: #81CA5E !important; }
+
     </style>
 </head>
 <body>
@@ -399,7 +509,7 @@
 </section>
 
 <!-- PROBLEMS -->
-<section style="background:var(--light-gray);">
+<section id="problems-section" style="background:var(--light-gray);">
     <div class="container">
         <div class="section-header">
             <h2>Problemas que <span style="color:var(--primary);">prejudicam</span> seu negócio</h2>
@@ -435,7 +545,7 @@
 </section>
 
 <!-- CLIENTS CAROUSEL -->
-<section style="background:var(--light-gray);padding:4rem 0;">
+<section class="clients-section" style="background:var(--light-gray);padding:4rem 0;">
     <div class="container">
         <div class="section-header">
             <h2>Empresas que <span style="color:var(--primary);">confiam</span> em nós</h2>
@@ -545,7 +655,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section>
+<section id="how-it-works">
     <div class="container">
         <div class="section-header">
             <h2>Como <span style="color:var(--primary);">Funciona</span></h2>
