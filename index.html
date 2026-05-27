@@ -503,6 +503,55 @@
             height: 56px !important;
         }
 
+
+        /* ── CONTATO ── */
+        .contact-section { background: var(--light-gray); padding: 5rem 0; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        .contact-card {
+            background: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+        .contact-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(128,202,237,0.15);
+            transform: translateY(-2px);
+        }
+        .contact-icon {
+            width: 48px; height: 48px;
+            background: rgba(128,202,237,0.12);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .contact-icon svg { width: 22px; height: 22px; }
+        .contact-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+        .contact-card p, .contact-card a {
+            font-size: 0.92rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            display: block;
+            text-decoration: none;
+        }
+        .contact-card a:hover { color: var(--accent); }
+
     </style>
 </head>
 <body>
@@ -519,6 +568,7 @@
                 <li><a href="#wifi">Wi-Fi Corporativo</a></li>
                 <li><a href="#tech">Tecnologias</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="cta-header">
                 <a href="https://wa.me/5551997820752" class="btn btn-primary" style="padding:.6rem 1.2rem;font-size:.9rem;">WhatsApp</a>
@@ -535,6 +585,7 @@
     <a href="#wifi" class="mobile-link">Wi-Fi Corporativo</a>
     <a href="#tech" class="mobile-link">Tecnologias</a>
     <a href="#faq" class="mobile-link">FAQ</a>
+    <a href="#contato" class="mobile-link">Contato</a>
     <a href="https://wa.me/5551997820752" class="btn btn-primary" style="text-align:center;">Falar no WhatsApp</a>
 </div>
 
@@ -825,6 +876,71 @@
                 <div class="faq-question"><span>Como é feita a migração de sistemas?</span><div class="faq-toggle">+</div></div>
                 <div class="faq-answer">Realizamos migrações com mínimo de downtime, garantindo que seus sistemas continuem funcionando. Temos um plano de contingência para cada situação.</div>
             </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTATO -->
+<section class="contact-section" id="contato">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">CONTATO</span>
+            <h2>Fale com a <span style="color:var(--primary);">RP Soluções</span></h2>
+            <p>Estamos prontos para atender sua empresa com agilidade e precisão.</p>
+        </div>
+        <div class="contact-grid">
+
+            <!-- Endereço -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                        <circle cx="12" cy="9" r="2.5"/>
+                    </svg>
+                </div>
+                <h3>Endereço</h3>
+                <p>Rua Souza Docca, 14</p>
+                <p>São José, Canoas/RS, Brasil</p>
+                <p>CEP 92.425-310</p>
+            </div>
+
+            <!-- Telefones -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.5 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.44 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.4a16 16 0 0 0 5.69 5.69l.76-.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/>
+                    </svg>
+                </div>
+                <h3>Telefones</h3>
+                <a href="tel:+5551997820752">+55 51 99782-0752</a>
+            </div>
+
+            <!-- E-mail -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <polyline points="2,4 12,13 22,4"/>
+                    </svg>
+                </div>
+                <h3>E-mail</h3>
+                <a href="mailto:contato@rpsolucoesti.com.br">contato@rpsolucoesti.com.br</a>
+            </div>
+
+            <!-- Horário -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12,6 12,12 16,14"/>
+                    </svg>
+                </div>
+                <h3>Horário de atendimento</h3>
+                <p>Atendimento 24 horas</p>
+                <p>7 dias por semana</p>
+            </div>
+
         </div>
     </div>
 </section>
